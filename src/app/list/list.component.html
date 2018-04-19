@@ -1,0 +1,27 @@
+<mat-toolbar color="primary"> Levi9 | Frontend Developer exercise </mat-toolbar>
+<h1>The Guardian News</h1>
+<button mat-raised-button color="primary" (click)="refresh()">Refresh</button>
+
+
+<div *ngIf="getList else statusFalse " class="list">
+    <div *ngFor="let news of queryRes">
+
+            <app-onenew
+                [title] = "news.webTitle"
+                [apiUrl] = "news.apiUrl"
+                [webUrl] = "news.webUrl"
+            ></app-onenew> 
+    </div>
+</div>
+
+<ng-template #statusFalse>
+        <p class="red"> Sorry, we couldn't find news for you. Please try again later</p>
+</ng-template>
+
+<mat-paginator [length]="length"
+              [pageSize]="pageSize"
+              [pageSizeOptions]="pageSizeOptions"
+              (page)="onPaginateChange($event)">
+</mat-paginator>
+
+

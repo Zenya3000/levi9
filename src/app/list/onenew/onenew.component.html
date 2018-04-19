@@ -1,0 +1,21 @@
+<mat-accordion >
+  <mat-expansion-panel
+      (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false">
+      <mat-expansion-panel-header
+      (click)="getArticle()">
+          <mat-panel-title>
+                  {{title}}
+          </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div *ngIf="article else spinroll">
+        <p>{{article.blocks.body[0].bodyTextSummary}}</p>
+        <a href="{{article.webUrl}}" target="blank">Read full news</a>
+      </div>
+      <ng-template #spinroll>
+        <div class="spin">
+            <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        </div>
+     </ng-template>
+  </mat-expansion-panel> 
+</mat-accordion>
