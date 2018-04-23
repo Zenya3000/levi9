@@ -1,4 +1,4 @@
-<mat-accordion >
+<!-- <mat-accordion >
   <mat-expansion-panel
       (opened)="panelOpenState = true"
       (closed)="panelOpenState = false">
@@ -18,4 +18,22 @@
         </div>
      </ng-template>
   </mat-expansion-panel> 
-</mat-accordion>
+</mat-accordion> -->
+
+<div class="accordion"
+  (click)="getArticle()">
+  <!-- (click)="test($event.currentTarget)" -->
+  <button class="open_acc">{{title}}</button>
+  <div class="content_of_acc" [ngClass]="{'is-open' : mark == true}" [style.maxHeight]="isCollapsed ? autoHeight +'px' : maxHeight " [@contentAnimation]>
+    <div *ngIf="article  else spinroll " class="getHeight" id="_x{{index}}" >
+      <span>{{article.blocks.body[0].bodyTextSummary}}</span>
+      <a href="{{article.webUrl}}" target="blank">Read full news</a>
+    </div>
+    <ng-template #spinroll>
+      <div class="spin">
+          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+      </div>
+   </ng-template>
+  </div>
+</div>
+

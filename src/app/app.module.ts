@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
 import { ListService } from './services/list.service';
 
+
+
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -90,7 +92,8 @@ import { OnenewComponent } from './list/onenew/onenew.component';
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    // AngularFontAwesomeModule
   ],
   providers: [HttpModule],
   bootstrap: [AppComponent]

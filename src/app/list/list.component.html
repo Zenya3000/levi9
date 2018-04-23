@@ -4,9 +4,10 @@
 
 
 <div *ngIf="getList else statusFalse " class="list">
-    <div *ngFor="let news of queryRes">
+    <div *ngFor="let news of queryRes; let i = index;">
 
             <app-onenew
+                [index] = "i"
                 [title] = "news.webTitle"
                 [apiUrl] = "news.apiUrl"
                 [webUrl] = "news.webUrl"
