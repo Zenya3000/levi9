@@ -29,12 +29,13 @@ export class OnenewComponent implements OnInit {
   @Input() title;
   @Input() apiUrl;
   @Input() webUrl;
+  aNode: any = [];
   myStyles = {};
   mark: boolean = false;
-  autoHeight: number = 100;
+  autoHeight: number = 0;
   maxHeight: number = 0;
   isCollapsed: boolean = false;
-
+  heightDiv;
   private value;
   article: any;
   item = [];
@@ -42,13 +43,15 @@ export class OnenewComponent implements OnInit {
 
   ngOnInit() {
   }
-  ngOnChanges(){}
-
+  ngOnChanges(article){
+    console.log('changes', article)
+  }
+  
   getArticle(){
     this.mark = !this.mark;
-    console.log('mark', this.mark);
-    // this.isCollapsed = !this.isCollapsed;
-    if(this.mark && !this.article){
+    // console.log('mark', this.mark);
+    if(!this.article){
+      this.autoHeight = 20;
       this.ls.getArticle(this.apiUrl).then(
         (res) => { 
           this.value = Object.keys(res).map(key => res[key])
@@ -57,12 +60,15 @@ export class OnenewComponent implements OnInit {
               if( element.content != null){
                 this.article = element.content;
                 console.log('!!', this.article)
-                setTimeout(function(){
-                  var item = document.getElementById('_x3');
-                  console.log('!!!', item);
-                  console.log('index', "{{index}}");
-                }, 1200)
-                console.log('index', this.index);
+                
+                setTimeout(() => {
+                  var test =  document.getElementById('x' + this.index)
+                  this.autoHeight = test.clientHeight;
+                }, 1);
+                
+
+                  
+                
 
 
                 // let currentHeight = this.elementRef.nativeElement.getElementsByClassName('getHeight').offsetHeight;
@@ -76,13 +82,16 @@ export class OnenewComponent implements OnInit {
 
               }
 
+
             });
           }
          },
         (err) => { console.log('error', err) }
       )
     }
-    this.isCollapsed = false;
+    this.isCollapsed = !this.isCollapsed;
+
+    // console.log("this.isCollapsed", this.isCollapsed);
 
    
   //   console.log('111', test);

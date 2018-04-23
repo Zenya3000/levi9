@@ -23,11 +23,13 @@
 <div class="accordion"
   (click)="getArticle()">
   <!-- (click)="test($event.currentTarget)" -->
-  <button class="open_acc">{{title}}</button>
-  <div class="content_of_acc" [ngClass]="{'is-open' : mark == true}" [style.maxHeight]="isCollapsed ? autoHeight +'px' : maxHeight " [@contentAnimation]>
-    <div *ngIf="article  else spinroll " class="getHeight" id="_x{{index}}" >
-      <span>{{article.blocks.body[0].bodyTextSummary}}</span>
-      <a href="{{article.webUrl}}" target="blank">Read full news</a>
+  <button class="open_acc" [ngClass]="{'is-open' : mark == true}">{{title}}</button>
+  <div class="content_of_acc"  [style.maxHeight]="isCollapsed ? autoHeight +'px' : maxHeight " [@contentAnimation]>
+    <div *ngIf="article  else spinroll "  >
+      <div class="getHeight " id="x{{index}}">
+        <span>{{article.blocks.body[0].bodyTextSummary}}</span>
+        <a href="{{article.webUrl}}" target="blank">Read full news</a>
+      </div>
     </div>
     <ng-template #spinroll>
       <div class="spin">

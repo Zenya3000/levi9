@@ -8,23 +8,17 @@
     width: 100%
     height: 100%
 .content_of_acc
-    display: none
+    display: block
     overflow: hidden
-    padding: 0px
+    padding: 0
 
     transition: max-height .5s ease
-    &.is-open
-        transition: 0.5s ease
-.content_of_acc.is-open
-    padding: 10px
-    display: block
-    transition: max-height 400ms ease
+    div
+        a
+            display: block
+    .getHeight
+        padding: 10px        
 
-    span
-        // display: block
-        .open_acc::after
-            content: '\f077'
-            // transition: 0.4s ease
 
 
 
@@ -52,7 +46,9 @@
         text-align: right
         font-size: 14px
         transition: 0.4s ease
-
+.open_acc.is-open::after
+    content: '\f077'
+    transition: 0.4s ease
 
 
         
