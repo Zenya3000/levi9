@@ -49,12 +49,14 @@ import {
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OnenewComponent } from './list/onenew/onenew.component';
+import { PaginationComponent } from './list/pagination/pagination.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
-    OnenewComponent
+    OnenewComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,

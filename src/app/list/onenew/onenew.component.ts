@@ -43,8 +43,7 @@ export class OnenewComponent implements OnInit {
 
   ngOnInit() {
   }
-  ngOnChanges(article){
-    console.log('changes', article)
+  ngOnChanges(){
   }
   
   getArticle(){

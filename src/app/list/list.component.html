@@ -19,10 +19,10 @@
         <p class="red"> Sorry, we couldn't find news for you. Please try again later</p>
 </ng-template>
 
-<mat-paginator [length]="length"
-              [pageSize]="pageSize"
-              [pageSizeOptions]="pageSizeOptions"
-              (page)="onPaginateChange($event)">
-</mat-paginator>
+<app-pagination
+[limit]="limit"
+[size]="length"
+[currentPage]="pageIndex"
+(pageChange)="pageChange($event)"></app-pagination>
 
 

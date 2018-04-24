@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs/Observable';
 import { ListService } from './../services/list.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { PageEvent } from '@angular/material';
 
 @Component({
@@ -15,6 +15,15 @@ export class ListComponent implements OnInit {
   pageIndex: number = 1;
   pageEvent: PageEvent;
   pageSizeOptions: any;
+  
+  //my pagination
+  count: number = 0;
+  offset: number = 0;
+  limit: number = 10;
+  range: number = 3;
+
+
+
   setPageSizeOptions(setPageSizeOptionsInput: string) {
     this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
   }
@@ -71,11 +80,11 @@ export class ListComponent implements OnInit {
     )
   }
 
-  onPaginateChange(event){
-     this.pageIndex = event.pageIndex +1;
-     this.refresh();
-  }
 
+  pageChange(event){
+    this.pageIndex = event;
+    this.refresh();
+  }
 }
 
 

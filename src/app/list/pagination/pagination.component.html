@@ -1,0 +1,13 @@
+<div class="wrapper">
+  <ul class="pagination">
+    <li (click)="selectPage(currentPage - 1, $event)" [class.disabled]="currentPage == 1">
+      <a href="" mat-raised-button color="warn" [disabled]="currentPage == 1" title="Go to previous page"> &lsaquo; Previous page </a>
+    </li>
+    <mat-chip-list>
+        <mat-chip>{{currentPage}}</mat-chip><span class="of"> of </span> <mat-chip> {{totalPages}} pages</mat-chip>
+    </mat-chip-list>
+    <li (click)="selectPage(currentPage + 1, $event)" [class.disabled]="currentPage == totalPages">
+      <a href="" mat-raised-button color="warn" [disabled]="currentPage == totalPages" title="Go to next page"> Next page &rsaquo;</a>
+    </li>
+  </ul>
+</div>
